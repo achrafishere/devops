@@ -43,7 +43,7 @@
 		<repository>
 			<id>deploymentRepo</id>
 			<name>Nexus repository</name>
-			<url>http://180.15.1.2:8081/repository/maven-snapshots</url>
+			<url>http://172.20.10.4:8081/repository/maven-snapshots</url>
 		</repository>
 	</distributionManagement>
 

@@ -48,11 +48,11 @@ pipeline {
             }
         }
         
-         stage('Nexus'){
-            steps{
-                sh 'mvn deploy -DskipStaging=true'
-            }
-        }
+        //  stage('Nexus'){
+        //     steps{
+        //         sh 'mvn deploy -DskipStaging=true'
+        //     }
+        // }
 
         
     }  

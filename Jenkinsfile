@@ -54,6 +54,32 @@ pipeline {
         //     }
         // }
 
+
+            stage('Build image') {
+           	steps {
+       		 sh "docker build -t kchouk/examen ."
+       		}
+       		}
+
+           stage("login DockerHub") {
+                steps{
+                    sh 'echo :U_v8NsfN!uj2tP | docker login -u kchouk -p :U_v8NsfN!uj2tP'
+                }
+        }
+
+          stage("Push to DockerHub") {
+                steps{
+                    sh 'docker push kchouk/examen'
+                }
+        }
+
+
+        	 stage("Docker-compose") {
+                steps{
+                    sh 'docker-compose up -d'
+                }
+        }
+
         
     }  
 }

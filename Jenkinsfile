@@ -57,19 +57,19 @@ pipeline {
 
             stage('Build image') {
            	steps {
-       		 sh "docker build -t kchouk/examen ."
+       		 sh "docker build -t achrafarfaoui/examen ."
        		}
        		}
 
            stage("login DockerHub") {
                 steps{
-                    sh 'echo :U_v8NsfN!uj2tP | docker login -u kchouk -p :U_v8NsfN!uj2tP'
+                    sh 'echo achraf000000 | docker login -u kchouk -p achraf000000'
                 }
         }
 
           stage("Push to DockerHub") {
                 steps{
-                    sh 'docker push kchouk/examen'
+                    sh 'docker push achrafarfaoui/examen '
                 }
         }
 

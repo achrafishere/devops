@@ -41,12 +41,12 @@ pipeline {
      
             } 
  
-           stage('SONARQUBE') {
-            steps {
-                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+        //    stage('SONARQUBE') {
+        //     steps {
+        //         sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
                  
-            }
-        }
+        //     }
+        // }
         
          stage('Nexus'){
             steps{
@@ -55,23 +55,23 @@ pipeline {
         }
 
 
-        //     stage('Build image') {
-        //    	steps {
-       	// 	 sh "docker build -t achrafarfaoui/examen ."
-       	// 	}
-       	// 	}
+            stage('Build image') {
+           	steps {
+       		 sh "docker build -t achrafarfaoui/examen ."
+       		}
+       		}
 
-        //    stage("login DockerHub") {
-        //         steps{
-        //             sh 'echo achraf000000 | docker login -u achrafarfaoui -p achraf000000'
-        //         }
-        // }
+           stage("login DockerHub") {
+                steps{
+                    sh 'echo achraf000000 | docker login -u achrafarfaoui -p achraf000000'
+                }
+        }
 
-        //   stage("Push to DockerHub") {
-        //         steps{
-        //             sh 'docker push achrafarfaoui/examen '
-        //         }
-        // }
+          stage("Push to DockerHub") {
+                steps{
+                    sh 'docker push achrafarfaoui/examen '
+                }
+        }
 
 
         // 	 stage("Docker-compose") {
